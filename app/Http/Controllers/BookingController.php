@@ -259,75 +259,7 @@ class BookingController extends Controller
             return view('pages.mtncash',compact('payment'));
         }
 
-        // if($request->payment == "Credit Card")
-        // {
-        //     $payment = new Payment();
-        //     $payment->payment_type = "credit_card";
-        //   //  $payment->phone = $request->mtnnumb;
-        //     $payment->amount = $totalpayment;
-        //     $payment->user_id = Auth::id();
-        //     $payment->trip_id = $trip->id;
-        //     $payment->save();
 
-        //     $book = new Booking();
-        //     $book->payment_id = $payment->id;
-        //     $book->user_id = Auth::id();
-        //     $book->trip_id = $trip->id;
-        //    // $book->seats = $request->seats;
-        //     if($request->translater != 'Choose a Translater if You Want!')
-        //     {
-        //         $book->translater_id = $translater->id;
-        //         $translater->status = 'taken';
-        //     }
-        //     $book->save();
-
-        //     $trip->seats_taken += $request->seats;
-        //     if($trip->seats == $trip->seats_taken)
-        //     {
-        //         $trip->status = 'res_over';
-        //     }
-        //     $trip->save();
-
-        //     // //return response()->json(['message','trip booked successfully the booking will be confirmed as soon as we confirm the payment']);
-        //     // return view('pages.mtncash',compact('payment'));
-        //    // $stripe = new \Stripe\StripeClient('sk_test_51O59JML9GmdzDG8x6tzGMrablEXq4TNnIIKJQAIY2GeJT0PRVyzOxve2MUbEQfnjfS7RgYiVoDiUp54VbntX6icb00K3c9eI8E');
-          
-        // //    Stripe::setApiKey(env('STRIPE_SECRET'));
-        // //   $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-
-        // // $checkout_session = $stripe->checkout->sessions->create([
-        // //   'line_items' => [[
-        // //     'price_data' => [
-        // //       'currency' => 'usd',
-        // //       'product_data' => [
-        // //         'name' => 'T-shirt',
-        // //       ],
-        // //       'unit_amount' => 2000,
-        // //     ],
-        // //     'quantity' => 1,
-        // //   ]],
-        // //   'mode' => 'payment',
-        // //   'success_url' => 'http://127.0.0.1:8000/book/creditcard/success',
-        // //   'cancel_url' => 'http://127.0.0.1:8000/book/creditcard/cancel',
-        // // ]);
-        
-        // // header("HTTP/1.1 303 See Other");
-        // // header("Location: " . $checkout_session->url);
-
-        // // Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        // // Stripe\Charge::create ([
-        // //         "amount" => 100 * 150,
-        // //         "currency" => "inr",
-        // //         // "source" => $request->stripeToken,
-        // //         "description" => "Making test payment." 
-        // // ]);
-  
-        // // Session::flash('success', 'Payment has been successfully processed.');
-          
-
-        // }
-
-       // return view('pages.pay',compact('totalpayment'));
     }
     
     public function mtncash(Request $request,Payment $payment)
@@ -352,50 +284,6 @@ class BookingController extends Controller
         return redirect('/trips/')->with('message','تم الحجز بنجاح وسيتم تأكيد الحجز عند تأكيد التحويل المالي');
     }
 
-    // public function creditcard(Request $request,Payment $payment)
-    // {
-    //     // $stripe = new \Stripe\StripeClient('sk_test_51O59JML9GmdzDG8x6tzGMrablEXq4TNnIIKJQAIY2GeJT0PRVyzOxve2MUbEQfnjfS7RgYiVoDiUp54VbntX6icb00K3c9eI8E');
-
-
-    //     // $checkout_session = $stripe->checkout->sessions->create([
-    //     //   'line_items' => [[
-    //     //     'price_data' => [
-    //     //       'currency' => 'usd',
-    //     //       'product_data' => [
-    //     //         'name' => 'T-shirt',
-    //     //       ],
-    //     //       'unit_amount' => 2000,
-    //     //     ],
-    //     //     'quantity' => 1,
-    //     //   ]],
-    //     //   'mode' => 'payment',
-    //     //   'success_url' => 'http://127.0.0.1:8000/book/creditcard/success',
-    //     //   'cancel_url' => 'http://127.0.0.1:8000/book/creditcard/cancel',
-    //     // ]);
-        
-    //     // header("HTTP/1.1 303 See Other");
-    //     // header("Location: " . $checkout_session->url);
-        
-    //     // Stripe::setApiKey(env('STRIPE_SECRET'));
-    //     // Stripe::create ([
-    //     //         "amount" => 100 * 150,
-    //     //         "currency" => "inr",
-    //     //         "source" => $request->stripeToken,
-    //     //         "description" => "Making test payment." 
-    //     // ]);
-  
-    //     // Session::flash('success', 'Payment has been successfully processed.');
-    // }
-
-    // public function success()
-    // {
-    //     return response()->json(['message','success']);
-    // }
-
-    // public function cancel()
-    // {
-    //     return response()->json(['message','cancel']);
-    // }
 
 
     /**
